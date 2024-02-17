@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>iPro Service</title>
+    
+    <!-- Favicons -->
+    <link href="{% static 'assets/images/iProWhite.jpg'%}" rel="icon">
+    <link href="{% static 'assets/img/iProWhite.jpg'%}" rel="apple-touch-icon">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-woox-travel.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css'%}">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<!--
+
+TemplateMo 580 Woox Travel
+
+https://templatemo.com/tm-580-woox-travel
+
+-->
+
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="{% url 'home'%}" class="logo">
+                        <img src="{% static 'assets/images/iPro.png'%}" alt="">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                       <li><form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="find">
+                        <button class="btn btn-outline-success" type="submit">Qidirish</button>
+                      </form></li>
+                        <li><a href="{% url 'home'%}" class="active">Home</a></li>
+                        <li><a href="{% url 'haqida'%}">About</a></li>
+                        {%if request.user.is_authenticated%}
+                        <li><a href="{% url 'logout'%}">Log-Out</a></li>
+                        
+                        {% else %}
+                        <li><a href="{% url 'signin'%}">Sign-In</a></li>
+                        {%endif%}
+                        <!-- <li><a href="reservation.html">Reservation</a></li>
+                        <li><a href="reservation.html">Book Yours</a></li> -->
+                    </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <!-- ***** Main Banner Area Start ***** -->
+  <section id="section-1">
+    <div class="content-slider">
+      <input type="radio" id="banner1" class="sec-1-input" name="banner" checked>
+      <input type="radio" id="banner2" class="sec-1-input" name="banner">
+      <input type="radio" id="banner3" class="sec-1-input" name="banner">
+      <div class="slider">
+        <div id="top-banner-1" class="banner">
+          <div class="banner-inner-wrapper header-text">
+            <div class="main-caption">
+              <h2></h2>
+              <h1>Ijtimoiy Tarmoqlarda:</h1>
+              <!-- <div class="border-button"><a href="about.html">Go There</a></div> -->
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="more-info">
+                    <div class="row">
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="">!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.<path d="/></svg> -->
+                        <i><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111 8 0 119 0 256S111 504 248 504 496 393 496 256 385 8 248 8zM363 176.7c-3.7 39.2-19.9 134.4-28.1 178.3-3.5 18.6-10.3 24.8-16.9 25.4-14.4 1.3-25.3-9.5-39.3-18.7-21.8-14.3-34.2-23.2-55.3-37.2-24.5-16.1-8.6-25 5.3-39.5 3.7-3.8 67.1-61.5 68.3-66.7 .2-.7 .3-3.1-1.2-4.4s-3.6-.8-5.1-.5q-3.3 .7-104.6 69.1-14.8 10.2-26.9 9.9c-8.9-.2-25.9-5-38.6-9.1-15.5-5-27.9-7.7-26.8-16.3q.8-6.7 18.5-13.7 108.4-47.2 144.6-62.3c68.9-28.6 83.2-33.6 92.5-33.8 2.1 0 6.6 .5 9.6 2.9a10.5 10.5 0 0 1 3.5 6.7A43.8 43.8 0 0 1 363 176.7z"/></svg></i>
+                        <h4><span>Biz:</span><br><a href="https://t.me/iPro_service">Telegram</a></h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></i>
+                        <h4><span>Biz:</span><br><a href="http://instagram.com/iproservice.uz">Instagram</a></h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111 8 0 119 0 256S111 504 248 504 496 393 496 256 385 8 248 8zM363 176.7c-3.7 39.2-19.9 134.4-28.1 178.3-3.5 18.6-10.3 24.8-16.9 25.4-14.4 1.3-25.3-9.5-39.3-18.7-21.8-14.3-34.2-23.2-55.3-37.2-24.5-16.1-8.6-25 5.3-39.5 3.7-3.8 67.1-61.5 68.3-66.7 .2-.7 .3-3.1-1.2-4.4s-3.6-.8-5.1-.5q-3.3 .7-104.6 69.1-14.8 10.2-26.9 9.9c-8.9-.2-25.9-5-38.6-9.1-15.5-5-27.9-7.7-26.8-16.3q.8-6.7 18.5-13.7 108.4-47.2 144.6-62.3c68.9-28.6 83.2-33.6 92.5-33.8 2.1 0 6.6 .5 9.6 2.9a10.5 10.5 0 0 1 3.5 6.7A43.8 43.8 0 0 1 363 176.7z"/></svg></i>
+                        <h4><span>Biz:</span><br><a href="https://t.me/iproservis2100">For Discuss</a></h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <div class="main-button">
+                          <a href="https://t.me/iProServis">Contact Us</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="top-banner-2" class="banner">
+          <div class="banner-inner-wrapper header-text">
+            <div class="main-caption">
+              <h2>Our Services:</h2>
+              <h1>Repair Mobile Phones & Tablets</h1>
+              <!-- <div class="border-button"><a href="about.html">Go There</a></div> -->
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="more-info">
+                    <div class="row">
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="m19.817 10.28l.046 2.694h-.023l-.78-2.693h-1.283v3.392h.848l-.046-2.785h.023l.836 2.785h1.227v-3.392zm-16.15 0l-.641 3.428h.928l.47-3.118h.023l.459 3.118h.916l-.63-3.427zm5.181 0l-.424 2.614h-.023l-.424-2.613H6.58l-.069 3.427h.86l.023-3.083h.011l.573 3.083h.871l.573-3.083h.023l.023 3.083h.86l-.08-3.427zm-7.266 2.454a.48.48 0 0 1 .011.252c-.023.114-.103.229-.332.229c-.218 0-.344-.126-.344-.31v-.332H0v.264c0 .768.607.997 1.25.997c.618 0 1.134-.218 1.214-.78c.046-.298.012-.492 0-.561c-.16-.722-1.467-.929-1.559-1.33a.492.492 0 0 1 0-.183c.023-.115.104-.23.31-.23c.206 0 .32.127.32.31v.206h.86v-.24c0-.745-.676-.86-1.157-.86c-.608 0-1.112.206-1.204.757a1.04 1.04 0 0 0 .012.458c.137.71 1.364.917 1.536 1.352m11.152 0c.034.08.022.184.011.253c-.023.114-.103.229-.332.229c-.218 0-.344-.126-.344-.31v-.332h-.917v.264c0 .756.596.985 1.238.985c.619 0 1.123-.206 1.203-.779c.046-.298.012-.481 0-.562c-.137-.71-1.433-.928-1.524-1.318a.488.488 0 0 1 0-.183c.023-.115.103-.23.31-.23c.194 0 .32.127.32.31v.206h.848v-.24c0-.745-.665-.86-1.146-.86c-.607 0-1.1.195-1.192.757c-.023.149-.023.286.012.458c.137.71 1.34.905 1.513 1.352m2.888.459c.24 0 .31-.16.332-.252c.012-.035.012-.092.012-.126V10.28h.87v2.464c0 .069 0 .195-.01.23c-.058.641-.562.847-1.193.847c-.63 0-1.134-.206-1.192-.848c0-.034-.011-.16-.011-.229V10.28h.87v2.533c0 .046 0 .091.012.126c0 .091.07.252.31.252m7.152-.034c.252 0 .332-.16.355-.253c.011-.034.011-.091.011-.126v-.493h-.355v-.504H24v.917c0 .069 0 .115-.011.23c-.058.63-.597.847-1.204.847s-1.146-.217-1.203-.848c-.012-.114-.012-.16-.012-.229v-1.444c0-.057.012-.172.012-.23c.08-.641.596-.847 1.203-.847s1.135.206 1.203.848c.012.103.012.229.012.229v.115h-.86v-.195s0-.08-.011-.126c-.012-.08-.08-.252-.344-.252c-.252 0-.32.16-.344.252c-.011.045-.011.103-.011.16v1.57c0 .046 0 .092.011.126c0 .092.092.253.333.253"/></svg></i>
+                        <h4><span>Main Phones:</span><br>Samsung</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M26.615 26.667a.43.43 0 0 1-.427-.427V5.761a.43.43 0 0 1 .427-.427h4.948a.429.429 0 0 1 .438.427V26.24c0 .24-.198.432-.438.427zm-8.297 0s-.396-.12-.396-.427V13.667a2.91 2.91 0 0 0-2.938-3h-9.25c-.536 0-.401.401-.401.401V26.24c0 .359-.401.427-.401.427H.437a.429.429 0 0 1-.438-.427V5.761c0-.24.198-.432.438-.427h17.151a5.71 5.71 0 0 1 5.667 5.693l.01 15.214a.426.426 0 0 1-.427.427zm-9.198 0a.401.401 0 0 1-.401-.401v-12c0-.219.182-.401.401-.401h5.026c.219.01.385.188.385.401v12a.397.397 0 0 1-.396.401z"/></svg></i>
+                        <h4><span>Main Phones:</span><br>MI</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="2em" viewBox="0 0 256 315"><path d="M213.803 167.03c.442 47.58 41.74 63.413 42.197 63.615c-.35 1.116-6.599 22.563-21.757 44.716c-13.104 19.153-26.705 38.235-48.13 38.63c-21.05.388-27.82-12.483-51.888-12.483c-24.061 0-31.582 12.088-51.51 12.871c-20.68.783-36.428-20.71-49.64-39.793c-27-39.033-47.633-110.3-19.928-158.406c13.763-23.89 38.36-39.017 65.056-39.405c20.307-.387 39.475 13.662 51.889 13.662c12.406 0 35.699-16.895 60.186-14.414c10.25.427 39.026 4.14 57.503 31.186c-1.49.923-34.335 20.044-33.978 59.822M174.24 50.199c10.98-13.29 18.369-31.79 16.353-50.199c-15.826.636-34.962 10.546-46.314 23.828c-10.173 11.763-19.082 30.589-16.678 48.633c17.64 1.365 35.66-8.964 46.64-22.262"/></svg></i>
+                        <h4><span>Main Phones:</span><br>Apple</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <div class="main-button">
+                          <a href="https://t.me/iProServis">Contact Us</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="top-banner-3" class="banner">
+          <div class="banner-inner-wrapper header-text">
+            <div class="main-caption">
+              <h2>Our Services:</h2>
+              <h1>Programming Mobile Phones & Tablets</h1>
+              <!-- <div class="border-button"><a href="about.html">Go There</a></div> -->
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="more-info">
+                    <div class="row">
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="m19.817 10.28l.046 2.694h-.023l-.78-2.693h-1.283v3.392h.848l-.046-2.785h.023l.836 2.785h1.227v-3.392zm-16.15 0l-.641 3.428h.928l.47-3.118h.023l.459 3.118h.916l-.63-3.427zm5.181 0l-.424 2.614h-.023l-.424-2.613H6.58l-.069 3.427h.86l.023-3.083h.011l.573 3.083h.871l.573-3.083h.023l.023 3.083h.86l-.08-3.427zm-7.266 2.454a.48.48 0 0 1 .011.252c-.023.114-.103.229-.332.229c-.218 0-.344-.126-.344-.31v-.332H0v.264c0 .768.607.997 1.25.997c.618 0 1.134-.218 1.214-.78c.046-.298.012-.492 0-.561c-.16-.722-1.467-.929-1.559-1.33a.492.492 0 0 1 0-.183c.023-.115.104-.23.31-.23c.206 0 .32.127.32.31v.206h.86v-.24c0-.745-.676-.86-1.157-.86c-.608 0-1.112.206-1.204.757a1.04 1.04 0 0 0 .012.458c.137.71 1.364.917 1.536 1.352m11.152 0c.034.08.022.184.011.253c-.023.114-.103.229-.332.229c-.218 0-.344-.126-.344-.31v-.332h-.917v.264c0 .756.596.985 1.238.985c.619 0 1.123-.206 1.203-.779c.046-.298.012-.481 0-.562c-.137-.71-1.433-.928-1.524-1.318a.488.488 0 0 1 0-.183c.023-.115.103-.23.31-.23c.194 0 .32.127.32.31v.206h.848v-.24c0-.745-.665-.86-1.146-.86c-.607 0-1.1.195-1.192.757c-.023.149-.023.286.012.458c.137.71 1.34.905 1.513 1.352m2.888.459c.24 0 .31-.16.332-.252c.012-.035.012-.092.012-.126V10.28h.87v2.464c0 .069 0 .195-.01.23c-.058.641-.562.847-1.193.847c-.63 0-1.134-.206-1.192-.848c0-.034-.011-.16-.011-.229V10.28h.87v2.533c0 .046 0 .091.012.126c0 .091.07.252.31.252m7.152-.034c.252 0 .332-.16.355-.253c.011-.034.011-.091.011-.126v-.493h-.355v-.504H24v.917c0 .069 0 .115-.011.23c-.058.63-.597.847-1.204.847s-1.146-.217-1.203-.848c-.012-.114-.012-.16-.012-.229v-1.444c0-.057.012-.172.012-.23c.08-.641.596-.847 1.203-.847s1.135.206 1.203.848c.012.103.012.229.012.229v.115h-.86v-.195s0-.08-.011-.126c-.012-.08-.08-.252-.344-.252c-.252 0-.32.16-.344.252c-.011.045-.011.103-.011.16v1.57c0 .046 0 .092.011.126c0 .092.092.253.333.253"/></svg></i>
+                        <h4><span>Main Phones:</span><br>Samsung</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M26.615 26.667a.43.43 0 0 1-.427-.427V5.761a.43.43 0 0 1 .427-.427h4.948a.429.429 0 0 1 .438.427V26.24c0 .24-.198.432-.438.427zm-8.297 0s-.396-.12-.396-.427V13.667a2.91 2.91 0 0 0-2.938-3h-9.25c-.536 0-.401.401-.401.401V26.24c0 .359-.401.427-.401.427H.437a.429.429 0 0 1-.438-.427V5.761c0-.24.198-.432.438-.427h17.151a5.71 5.71 0 0 1 5.667 5.693l.01 15.214a.426.426 0 0 1-.427.427zm-9.198 0a.401.401 0 0 1-.401-.401v-12c0-.219.182-.401.401-.401h5.026c.219.01.385.188.385.401v12a.397.397 0 0 1-.396.401z"/></svg></i>
+                        <h4><span>Main Phones:</span><br>MI</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="2em" viewBox="0 0 256 315"><path d="M213.803 167.03c.442 47.58 41.74 63.413 42.197 63.615c-.35 1.116-6.599 22.563-21.757 44.716c-13.104 19.153-26.705 38.235-48.13 38.63c-21.05.388-27.82-12.483-51.888-12.483c-24.061 0-31.582 12.088-51.51 12.871c-20.68.783-36.428-20.71-49.64-39.793c-27-39.033-47.633-110.3-19.928-158.406c13.763-23.89 38.36-39.017 65.056-39.405c20.307-.387 39.475 13.662 51.889 13.662c12.406 0 35.699-16.895 60.186-14.414c10.25.427 39.026 4.14 57.503 31.186c-1.49.923-34.335 20.044-33.978 59.822M174.24 50.199c10.98-13.29 18.369-31.79 16.353-50.199c-15.826.636-34.962 10.546-46.314 23.828c-10.173 11.763-19.082 30.589-16.678 48.633c17.64 1.365 35.66-8.964 46.64-22.262"/></svg></i>
+                        <h4><span>Main Phones:</span><br>Apple</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <div class="main-button">
+                          <a href="https://t.me/iProServis">Contact Us</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <nav>
+        <div class="controls">
+          <label for="banner1"><span class="progressbar"><span class="progressbar-fill"></span></span><span class="text">1</span></label>
+          <label for="banner2"><span class="progressbar"><span class="progressbar-fill"></span></span><span class="text">2</span></label>
+          <label for="banner3"><span class="progressbar"><span class="progressbar-fill"></span></span><span class="text">3</span></label>
+          </div>
+      </nav>
+    </div>
+  </section>
+  <!-- ***** Main Banner Area End ***** -->
+  
+  <div class="visit-country">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="section-heading">
+            <h2>Qilgan Ishlarimiz :</h2>
+            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p> -->
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="items">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="item">
+                  <div class="row">
+                    {% for x in news %}
+                    
+                    <div class="col-lg-4 col-sm-5">
+                      
+                      <div class="image">
+                            <!--  -->
+                            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                              
+                              <div class="carousel-inner">
+                                {% for j in x.photo.all %}
+                                <div class="carousel-item active" data-bs-interval="2000">
+                                  <img src="{{j.photo.url}}" class="d-block w-100" alt="...">
+                                </div>
+                                {% endfor %}
+                                <!-- <div class="carousel-item">
+                                  <img src="{{j.photo.url}}" class="d-block w-100" alt="...">
+                                </div> -->
+                                <!-- <div class="carousel-item">
+                                  <img src="{{j.photo.url}}" class="d-block w-100" alt="...">
+                                </div> -->
+                              </div>
+                              
+                              <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                              </button>
+                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                              </button> -->
+                            </div>
+                        <!--  -->
+                        <!-- <img src="{% static 'assets/images/country-01.jpg'%}" alt=""> -->
+                      </div>
+                      
+                    </div>
+                    <div class="col-lg-8 col-sm-7">
+                      <div class="right-content">
+                        <h4><a href="{%url 'opennews' x.slug%}">{{x.title}}</a></h4>
+                        <span>
+                          <!-- {{x.model}} -->
+                          <form method="get">
+                          <input type="hidden" name="name" value="{{x.model.name}}">
+                          <button type="submit" class="btn text-secondary">{{x.model}}</button>
+                          </form>
+                        </span>
+                          <!--  -->
+                        <p>{{x.content|truncatechars:70}}</p>
+                        <form method="post" action="{% url 'likenewss' x.slug %}">
+                        <ul class="info">
+                          <li><i class="fa fa-eye"></i> {{x.viewed_list}} Viewed</li>
+                          <!--  -->
+                            {% csrf_token %}
+                            {%if request.user.is_authenticated%}
+                            {% if request.user in x.like_news.user.all %}
+                            <li class="text-center"><button type="submit" class="btn"><i class="fa-solid fa-thumbs-up"></i> {{x.sum_of_likes}} Liked</button></li>
+                            {% else %}
+                            <li class="text-center"><button type="submit" class="btn"><i class="fa-regular fa-thumbs-up"></i> {{x.sum_of_likes}} Liked</button></li>
+                            {% endif %}
+                            {% else %}
+                            <li class="text-center"><i class="fa-regular fa-thumbs-up"></i> {{x.sum_of_likes}} Liked</li>
+                            {%endif%}
+                          <li><i class="fa-regular fa-clock"></i> {{x.created_at}}</li>
+                        </ul>
+                      </form>
+                        <!-- </form> -->
+                        <div class="text-button">
+                          <a href="https://t.me/iProServis">Contact Us <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <br><br><br><br><br><br><br><br><br><br><br><hr><br>
+                    
+                    {% endfor %}
+                    
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="col-lg-12">
+                <div class="item">
+                  <div class="row">
+                    <div class="col-lg-4 col-sm-5">
+                      <div class="image">
+                        <img src="{% static 'assets/images/country-02.jpg'%}" alt="">
+                      </div>
+                    </div>
+                    <div class="col-lg-8 col-sm-7">
+                      <div class="right-content">
+                        <h4>CARIBBEAN</h4>
+                        <span>North America</span>
+                        <div class="main-button">
+                          <a href="about.html">Explore More</a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                        <ul class="info">
+                          <li><i class="fa fa-user"></i> 44.48 Mil People</li>
+                          <li><i class="fa fa-globe"></i> 275.400 km2</li>
+                          <li><i class="fa fa-home"></i> $946.000</li>
+                        </ul>
+                        <div class="text-button">
+                          <a href="about.html">Need Directions ? <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="item last-item">
+                  <div class="row">
+                    <div class="col-lg-4 col-sm-5">
+                      <div class="image">
+                        <img src="{% static 'assets/images/country-03.jpg'%}" alt="">
+                      </div>
+                    </div>
+                    <div class="col-lg-8 col-sm-7">
+                      <div class="right-content">
+                        <h4>FRANCE</h4>
+                        <span>Europe</span>
+                        <div class="main-button">
+                          <a href="about.html">Explore More</a>
+                        </div>
+                        <p>We hope this WoOx template is useful for you, please support us a <a href="https://paypal.me/templatemo" target="_blank">small amount of PayPal</a> to info [at] templatemo.com for our survival. We really appreciate your contribution.</p>
+                        <ul class="info">
+                          <li><i class="fa fa-user"></i> 67.41 Mil People</li>
+                          <li><i class="fa fa-globe"></i> 551.500 km2</li>
+                          <li><i class="fa fa-home"></i> $425.600</li>
+                        </ul>
+                        <div class="text-button">
+                          <a href="about.html">Need Directions ? <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <div class="col-lg-12">
+                <ul class="page-numbers">
+                  {% if news.has_previous %}
+                  <li><a href="{% url 'home'%}?page={{news.previous_page_number}}"><i class="fa fa-arrow-left"></i></a></li>
+                  {% endif %}
+                  <!-- <li><a href="#">1</a></li> -->
+                  <li class="active"><a href="">{{news.number}}</a></li>
+                  <!-- <li><a href="#">3</a></li> -->
+                  {% if news.has_next %}
+                  <li><a href="{% url 'home'%}?page={{news.next_page_number}}"><i class="fa fa-arrow-right"></i></a></li>
+                  {% endif %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="side-bar-map">
+            <div class="row">
+              <div class="col-lg-12">
+                <div id="map">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d188.21751469415113!2d71.66526102130881!3d40.992860918481625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bb4bff0e2d55a7%3A0x8de5213261083020!2z0YPQu9C40YbQsCDQkNC70LjRiNC10YAg0J3QsNCy0L7QuCA2LCDQndCw0LzQsNC90LPQsNC9LCDQndCw0LzQsNC90LPQsNC90YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsINCj0LfQsdC10LrQuNGB0YLQsNC9!5e0!3m2!1sru!2s!4v1708185621132!5m2!1sru!2s" width="100%" height="550px" frameborder="0" style="border:0; border-radius: 23px; " allowfullscreen=""></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="call-to-action">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h2>Mobil Qurulmangiz Ishdan Chiqdimi ?</h2>
+          <h4>Unda Bizbilan Bog'laning</h4>
+        </div>
+        <div class="col-lg-4">
+          <div class="border-button">
+            <a href="https://t.me/iProServis">Bog'lanish</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2036 <a href="#">WoOx Travel</a> Company. All rights reserved. 
+          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a></p>
+        </div>
+      </div>
+    </div>
+  </footer> -->
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+
+  <script src="{% static 'assets/js/isotope.min.js'%}"></script>
+  <script src="{% static 'assets/js/owl-carousel.js'%}"></script>
+  <!-- <script src="{% static 'assets/js/wow.js'%}"></script> -->
+  <script src="{% static 'assets/js/tabs.js'%}"></script>
+  <script src="{% static 'assets/js/popup.js'%}"></script>
+  <script src="{% static 'assets/js/custom.js'%}"></script>
+
+  <script>
+    function bannerSwitcher() {
+      next = $('.sec-1-input').filter(':checked').next('.sec-1-input');
+      if (next.length) next.prop('checked', true);
+      else $('.sec-1-input').first().prop('checked', true);
+    }
+
+    var bannerTimer = setInterval(bannerSwitcher, 5000);
+
+    $('nav .controls label').click(function() {
+      clearInterval(bannerTimer);
+      bannerTimer = setInterval(bannerSwitcher, 5000)
+    });
+  </script>
+  <script src="https://kit.fontawesome.com/e66b969786.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>
